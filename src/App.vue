@@ -1,7 +1,7 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/">Home</router-link>
+    <router-link to="/products">全部產品</router-link>
   </nav>
   <router-view/>
 </template>
@@ -14,7 +14,7 @@
   text-align: center;
   color: #2c3e50;
 }
-
+np
 nav {
   padding: 30px;
 }

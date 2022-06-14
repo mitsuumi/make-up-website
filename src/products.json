@@ -1,0 +1,32 @@
+[
+ {
+    "title": "賣快商品1",
+    "price": "$300",
+    "img": "./images/Frog_1.png"
+ },
+ {
+    "title": "賣快商品2",
+    "price": "$300",
+    "img": "./images/Ghast.png"
+ },
+ {
+    "title": "賣快商品3",
+    "price": "$300",
+    "img": "./images/cloth.png"
+ },
+ {
+    "title": "賣快商品4",
+    "price": "$300",
+    "img": "./images/Frog_1.png"
+ },
+ {
+    "title": "賣快商品5",
+    "price": "$300",
+    "img": "./images/Frog_1.png"
+ },
+ {
+    "title": "賣快商品6",
+    "price": "$300",
+    "img": "./images/Frog_1.png"
+ }
+]
