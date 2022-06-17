@@ -45,3 +45,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+img{
+  height: 90vh;
+  object-fit: cover;
+}
+</style>

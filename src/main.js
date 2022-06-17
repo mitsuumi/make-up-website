@@ -9,6 +9,7 @@ import App from './App.vue';
 import router from './router';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
+import '../public/reset.css';
 
 const app = createApp(App);
 library.add(faShoppingCart, faInstagram, faFacebookSquare);

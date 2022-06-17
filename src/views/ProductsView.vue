@@ -35,15 +35,18 @@ export default {
   data() {
     return {
       goodsList: [],
+      login: [],
+      cart: [],
     };
   },
   mounted() {
     // ../../public/data/products.json
-    const url = 'http://localhost:8080/data/products.json';
+    // const url = 'http://localhost:8080/data/products.json';
+    const url = '/shopList';
     axios.get(url)
       .then((response) => {
-        this.goodsList = response.data;
-        console.log(this.goodsList);
+        this.cart = response.data;
+        console.log(response);
       })
       .catch((error) => {
         console.log(error);

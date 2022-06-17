@@ -41,28 +41,36 @@ export default {
   font-size: 1rem;
   transition: transform 0.5s;
 }
-.cartBtn:hover{
+.cartBtn:hover, .cartBtn:active:hover, .cartBtn.active:hover{
   background-color: white;
   border:  1px solid #FF0000;
   color: #000000;
-  transform: scale(1.1);
 }
+
+.cartBtn:active, .cartBtn.active, .cartBtn.active.focus{
+  background-color: #FFD0D0;
+  border-color: #FF0000;
+}
+
 .card-title{
   font-size: 1rem;
   line-height: 36px;
 }
 .card-text{
   font-size: 1rem;
-  line-height: 0.2rem;
 }
 .original{
   color: #797979;
-   text-decoration:  line-through;
+  text-decoration:  line-through;
 }
 .sale{
   color: #FF0000;
 }
 .follow{
   font-size: 1rem;
+  transition: 0.5s;
+}
+.follow:hover{
+  color:red;
 }
 </style>
