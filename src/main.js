@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import { BIconHeart } from 'bootstrap-icons-vue';
-// import axios from 'axios';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFacebookSquare, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
@@ -15,6 +16,7 @@ const app = createApp(App);
 library.add(faShoppingCart, faInstagram, faFacebookSquare);
 app.component('font-awesome-icon', FontAwesomeIcon);
 app.use(router);
+app.use(VueAxios, axios);
 app.component('BIconHeart', BIconHeart);
 // 配置請求根路徑
 

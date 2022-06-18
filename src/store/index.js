@@ -3,8 +3,7 @@
 
 // export default createStore({
 //   state: {
-//     serverPath: 'https://www.escook.cn',
-//     userId: 12,
+//     serverPath: 'http://localhost:3000',
 //     cart: [],
 //     products: [],
 //   },
@@ -14,10 +13,7 @@
 //     },
 //   },
 //   actions: {
-//     async getProducts({ commit }) {
-//       const res = await axios.get('../data/products.json');
-//       console.log(res);
-//     },
+
 //   },
 //   modules: {
 

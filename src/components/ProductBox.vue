@@ -1,10 +1,10 @@
 <template>
-      <div class="card" style="width: 18rem;">
-      <img src="../assets/care1.png" class="card-img-top" alt="...">
+    <div class="card" style="width: 18rem;">
+      <img :src="img" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Body Hero Dry-Touch Oil Mist</h5>
-        <p class="card-text original">原價 $3,320</p >
-        <p class="card-text sale">特價 $2,100</p>
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text original">原價 ${{price}}</p >
+        <p class="card-text sale">特價 ${{parseInt(price*0.8)}}</p>
         <a href="#" class="btn btn-primary cartBtn">加入購物車</a>
         <div class="follow">
           <BIconHeart />
@@ -17,6 +17,14 @@
 <script>
 export default {
   name: 'productBox',
+  props: {
+    id: Number,
+    img: String,
+    price: Number,
+    title: String,
+    category: String,
+    count: Number,
+  },
 };
 </script>
 
@@ -31,6 +39,10 @@ export default {
 }
 .card:hover{
   transform: scale(1.05);
+}
+.card img{
+  height: 300px;
+  object-fit: contain;
 }
 .cartBtn{
   margin-bottom: 19px;

@@ -8,7 +8,7 @@
           </div>
         </div>
             <div class="row  d-flex justify-content-around">
-                 <product-box class="col-12 col-md-3" v-for="item in goodsList"
+                 <product-box class="col-12 col-md-3" v-for="item in facialCareList"
               :key="item.id"
               :id="item.id"
               :img="item.imageUrl"
@@ -32,7 +32,7 @@ export default {
   name: 'all-products',
   data() {
     return {
-      goodsList: [],
+      facialCareList: [],
       login: [],
       cart: [],
     };
@@ -42,8 +42,9 @@ export default {
     // const url = 'http://localhost:8080/data/products.json';
     this.axios.get('/shopList')
       .then((response) => {
-        this.goodsList = response.data.data;
-        console.log(this.goodsList);
+        const facialCareItems = response.data.data.filter((item) => item.productType === 'cosmetics');
+        this.facialCareList = facialCareItems;
+        console.log(facialCareItems);
       })
       .catch((error) => {
         console.log(error);

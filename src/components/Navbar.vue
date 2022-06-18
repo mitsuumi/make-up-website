@@ -3,6 +3,9 @@
         <nav-dropdown title="Services" :items="services"></nav-dropdown>
         <router-link to="/">Home</router-link>
         <router-link to="/products">全部產品</router-link>
+        <router-link to="/facial-care">美顏保養</router-link>
+        <router-link to="/makeup">美妝彩妝</router-link>
+        <font-awesome-icon icon="shopping-cart" />
       </nav>
     <router-view/>
 </template>
