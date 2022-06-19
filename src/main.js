@@ -4,7 +4,9 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFacebookSquare, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import {
+  faShoppingCart, faBars, faUser, faEye, faEyeSlash, faHeart,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import App from './App.vue';
 import router from './router';
@@ -13,7 +15,7 @@ import 'bootstrap';
 import '../public/reset.css';
 
 const app = createApp(App);
-library.add(faShoppingCart, faInstagram, faFacebookSquare);
+library.add(faShoppingCart, faBars, faInstagram, faFacebookSquare, faUser, faEye, faEyeSlash, faHeart);
 app.component('font-awesome-icon', FontAwesomeIcon);
 app.use(router);
 app.use(VueAxios, axios);

@@ -1,9 +1,5 @@
 <template>
     <div class="cart">
-        <!-- main-title -->
-        <div class="main-title">
-            <h4>購物車</h4>
-        </div>
         <!-- Item -->
         <div class="cart-items">
             <!-- 左側圖片區 -->
@@ -11,7 +7,7 @@
                 <div class="form-check">
                     <input type="checkbox" value="">
                     <!-- eslint-disable-next-line vuejs-accessibility/label-has-for -->
-                    <label class="form-check-label">
+                    <label class="form-check-label cart-img">
                         <img src="@/assets/care1.png" alt="">
                     </label>
                 </div>
@@ -29,12 +25,6 @@
                 <button class="submit-btn">移除商品</button>
             </div>
         </div>
-        <!-- 金額 -->
-        <div class="total-price">
-            <p>商品總金額: $999 結帳總金額: $999</p>
-        </div>
-        <!-- 結帳按鈕 -->
-        <button class="btn btn-primary">結帳</button>
     </div>
 </template>
 
@@ -88,3 +78,12 @@ export default {
   },
 };
 </script>
+
+<style>
+.cart-img img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+</style>

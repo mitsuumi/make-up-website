@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid item-position">
     <div class="row justify-content-center">
       <div class="col-md-10">
         <div class="row">
@@ -7,8 +7,9 @@
             <Breadcrumb></Breadcrumb>
           </div>
         </div>
-            <div class="row  d-flex justify-content-around">
-                 <product-box class="col-12 col-md-3" v-for="item in goodsList"
+            <div class="row d-flex justify-content-around">
+              <product-box class="col-12 col-md-3" v-for="item in goodsList"
+              :initProduct="item"
               :key="item.id"
               :id="item.id"
               :img="item.imageUrl"
@@ -35,6 +36,7 @@ export default {
       goodsList: [],
       login: [],
       cart: [],
+      chosenProducts: [],
     };
   },
   mounted() {
@@ -43,7 +45,7 @@ export default {
     this.axios.get('/shopList')
       .then((response) => {
         this.goodsList = response.data.data;
-        console.log(this.goodsList);
+        console.log('全部商品', this.goodsList);
       })
       .catch((error) => {
         console.log(error);
@@ -54,5 +56,19 @@ export default {
     Breadcrumb,
     MyFooter,
   },
+  methods: {
+    // putIntoCart(info) {
+    //   this.chosenProduct.push(info);
+    //   this.$emit('cartItem', info);
+    //   console.log(this.chosenProduct);
+    // },
+  },
 };
 </script>
+
+<style scoped>
+.item-position{
+  margin-top: 100px;
+}
+
+</style>

@@ -58,15 +58,17 @@ export default {
 </script>
 
 <style scoped>
-.counter-container{
+.count-container{
     display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .btn{
     width: 25px;
 }
 
 .ipt-num{
-    width: 34px;
+    width: 100px;
     text-align: center;
     margin: 0 4px;
 }

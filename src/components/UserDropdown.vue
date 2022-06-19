@@ -1,12 +1,11 @@
 <template>
     <div class="menu-item" @click="isOpen =! isOpen" @keypress="isOpen =! isOpen">
-        <button class="button"><font-awesome-icon icon="bars" /></button>
+        <button class="button"><font-awesome-icon icon="user" /></button>
         <transition name="fade" appear>
             <ul class="sub-menu" v-show="isOpen">
-              <li><router-link to="/">首頁</router-link></li>
-              <li><router-link to="/products">全部產品</router-link></li>
-              <li><router-link to="/cosmetics">美顏保養</router-link></li>
-              <li><router-link to="/makeup">美妝彩妝</router-link></li>
+              <li><router-link to="/login">登入</router-link></li>
+              <li><router-link to="/signup">註冊</router-link></li>
+              <li><router-link to="/signup">會員資料</router-link></li>
             </ul>
         </transition>
     </div>
@@ -31,8 +30,7 @@ nav .menu-item .sub-menu {
     position: absolute;
     width: 400px;
     top:60px;
-    left:0px;
-    height: 90vh;
+    right: 0;
     background-color: rgba(248, 217, 217, 0.9);
     box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
     z-index: 999;

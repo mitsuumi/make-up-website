@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid item-position">
     <div class="row justify-content-center">
       <div class="col-md-10">
         <div class="row">
@@ -8,7 +8,8 @@
           </div>
         </div>
             <div class="row  d-flex justify-content-around">
-                 <product-box class="col-12 col-md-3" v-for="item in facialCareList"
+              <product-box class="col-12 col-md-3" v-for="item in facialCareList"
+              :init-product="item"
               :key="item.id"
               :id="item.id"
               :img="item.imageUrl"
@@ -57,3 +58,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.item-position{
+  margin-top: 100px;
+}
+</style>

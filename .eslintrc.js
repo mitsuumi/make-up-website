@@ -16,5 +16,7 @@ module.exports = {
     'linebreak-style': ['off', 'windows'],
     'max-len': ['error', { code: 500 }],
     'global-require': 0,
+    'vuejs-accessibility/click-events-have-key-events': 'off',
+
   },
 };

@@ -1,8 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import Products from '../views/ProductsView.vue';
-import FacialCare from '../views/FacialCareView.vue';
+import Cosmetics from '../views/CosmeticsView.vue';
 import MakeupView from '../views/MakeupView.vue';
+import LoginView from '../views/LoginView.vue';
+import SignupView from '../views/SignupView.vue';
+import MembershipView from '../views/MembershipView.vue';
+import OrderView from '../views/OrderView.vue';
+import ProductItemsView from '../views/ProductItemsView.vue';
 
 const routes = [
   {
@@ -16,14 +21,39 @@ const routes = [
     component: Products,
   },
   {
-    path: '/facial-care',
-    name: 'facial care',
-    component: FacialCare,
+    path: '/product/:id',
+    name: 'product',
+    component: ProductItemsView,
+  },
+  {
+    path: '/cosmetics',
+    name: 'cosmetics',
+    component: Cosmetics,
   },
   {
     path: '/makeup',
     name: 'makeup',
     component: MakeupView,
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView,
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: SignupView,
+  },
+  {
+    path: '/membership',
+    name: 'membership',
+    component: MembershipView,
+  },
+  {
+    path: '/order',
+    name: 'order',
+    component: OrderView,
   },
 
 ];
