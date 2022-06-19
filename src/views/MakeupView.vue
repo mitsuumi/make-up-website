@@ -1,4 +1,7 @@
 <template>
+   <header>
+      <navbar ></navbar>
+  </header>
   <div class="container-fluid item-position">
     <div class="row justify-content-center">
       <div class="col-md-10">
@@ -26,6 +29,7 @@
 </template>
 
 <script>
+import Navbar from '@/components/Navbar.vue';
 import ProductBox from '../components/ProductBox.vue';
 import Breadcrumb from '../components/Breadcrumb.vue';
 import MyFooter from '../components/MyFooter.vue';
@@ -56,6 +60,7 @@ export default {
     ProductBox,
     Breadcrumb,
     MyFooter,
+    Navbar,
   },
 };
 </script>

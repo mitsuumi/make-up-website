@@ -1,9 +1,9 @@
 <template>
     <div class="count-container">
-        <button class="btn btn-light btn-sm">-</button>
+        <button class="btn btn-light btn-sm" @click="onSubClick">-</button>
          <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
         <input type="number" class="form-control form-control-sm ipt-num" v-model.number.lazy="number">
-        <button class="btn btn-light btn-sm">+</button>
+        <button class="btn btn-light btn-sm" @click="onAddClick">+</button>
     </div>
 </template>
 
@@ -50,7 +50,7 @@ export default {
       this.number -= 1;
     },
     onAddClick() {
-      if (this.number > this.max) { return; }
+      if (this.number >= this.max) { return; }
       this.number += 1;
     },
   },

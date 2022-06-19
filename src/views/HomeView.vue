@@ -1,4 +1,7 @@
 <template>
+    <header>
+      <navbar ></navbar>
+    </header>
     <div class="home item-position">
         <home-carousel></home-carousel>
       </div>
@@ -118,6 +121,7 @@
 </template>
 
 <script>
+import Navbar from '@/components/Navbar.vue';
 import HomeCarousel from '../components/CarouselHome.vue';
 import ProductBox from '../components/ProductBox.vue';
 import MyFooter from '../components/MyFooter.vue';
@@ -128,6 +132,7 @@ export default {
     HomeCarousel,
     ProductBox,
     MyFooter,
+    Navbar,
   },
   data() {
     return {
@@ -166,7 +171,7 @@ export default {
   box-sizing: border-box;
 }
 .item-position{
-  margin-top: 8vh;
+  margin-top: 7vh;
 }
 h2 {
   font-size: 32px;

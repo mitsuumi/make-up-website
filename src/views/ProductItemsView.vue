@@ -1,4 +1,7 @@
 <template>
+   <header>
+      <navbar ></navbar>
+  </header>
 <div>
     <div class="container">
 <!--左邊商品圖-->
@@ -24,33 +27,32 @@
             </div>
 
             <!--數量和付款方式-->
-            <div class="btnAndCheckOut">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        請選擇數量
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">1</a></li>
-                        <li><a class="dropdown-item" href="#">2</a></li>
-                        <li><a class="dropdown-item" href="#">3</a></li>
-                        <li><a class="dropdown-item" href="#">4</a></li>
-                        <li><a class="dropdown-item" href="#">5</a></li>
-                        <li><a class="dropdown-item" href="#">6</a></li>
-                        <li><a class="dropdown-item" href="#">7</a></li>
-                        <li><a class="dropdown-item" href="#">8</a></li>
-                        <li><a class="dropdown-item" href="#">9</a></li>
-                        <li><a class="dropdown-item" href="#">10</a></li>
-                    </ul>
+            <div class="counter-container">
+                <div class="count">
+                    <div class="count-title">
+                        <p>數量</p>
+                    </div>
+                    <div class="count-number">
+                        <button class="btn btn-light btn-sm" @click="onSubClick">-</button>
+                        <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
+                        <input type="number" class="form-control form-control-sm ipt-num" v-model.number.lazy="number">
+                        <button class="btn btn-light btn-sm" @click="onAddClick">+</button>
+                    </div>
                 </div>
 
-            <!--這邊使用Boostrap-->
-                <div class="payment">付款方式
-                        <span> <i class="fa-solid fa-credit-card"></i> </span>
-                        <span> <i class="fa-brands fa-cc-mastercard"></i> </span>
-                        <span> <i class="fa-brands fa-line"></i> </span>
-                        <span> <i class="fa-brands fa-cc-apple-pay"></i></span>
-                </div>
             </div>
+                    <!--這邊使用Boostrap-->
+                <div class="payment">
+                    <div class="pay-title">
+                        <p>付款方式</p>
+                    </div>
+                    <div class="pay-icon">
+                        <span><font-awesome-icon icon="credit-card" /></span>
+                        <span> <font-awesome-icon icon="fa-brands fa-cc-mastercard" /> </span>
+                        <span> <font-awesome-icon icon="fa-brands fa-line" /> </span>
+                        <span> <font-awesome-icon icon="fa-brands fa-cc-apple-pay" /></span>
+                    </div>
+                </div>
 
             <!--加入購物車-->
             <div class="addToCart"><button class="addToCart addToCartBtn" type="" @click="addToCart()">加入購物車</button></div>
@@ -77,9 +79,11 @@
 </template>
 
 <script>
+import Navbar from '@/components/Navbar.vue';
 
 export default {
   name: 'productCard',
+  components: { Navbar },
   props: {
     initProduct: {
       type: Object,
@@ -89,12 +93,10 @@ export default {
   data() {
     return {
       idProduct: '',
-      productPhoto: '',
-      title: 'test',
-      sort: 'test',
       introduction: '產品介紹：光聞道味道心靈就被療癒！Aesop的屏息以待，是一款充滿柑橘香調的身體保濕精油，主要成份為血橙、荷荷芭籽、月桂葉，搭配了甜杏仁油、澳洲堅果油及荷荷芭油的基底油，有助於柔軟保濕並讓肌膚更緊實細緻。內行人也推薦搭配AESOP同系列香調的「橙香身體乳」加強保濕與鎖水效果。',
-      originalPrice: '299',
-      discountPrice: '特價NTD$999',
+      min: 0,
+      max: 10,
+      number: 1,
     };
   },
   mounted() {
@@ -111,6 +113,14 @@ export default {
       });
   },
   methods: {
+    onSubClick() {
+      if (!Number.isNaN(this.min) && this.number - 1 < this.min) { return; }
+      this.number -= 1;
+    },
+    onAddClick() {
+      if (this.number >= this.max) { return; }
+      this.number += 1;
+    },
   },
 };
 
@@ -137,7 +147,7 @@ export default {
 .imgArea img{
     width: 70%;
     height: 70%;
-    object-fit: cover;
+    object-fit: contain;
 }
 .detailsArea{
     width:500px;
@@ -198,7 +208,26 @@ export default {
 }
 
 /*=數量和付款方式=*/
-.btnAndCheckOut{
+.counter-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.count{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top:20px;
+    margin-left: 20px;
+}
+.count-title{
+    padding:20px;
+}
+.count-number{
+    display: flex;
+    width: 150px;
+}
+/* .btnAndCheckOut{
     margin-top:20px;
     display: flex;
     flex-direction: row;
@@ -206,7 +235,7 @@ export default {
 
 }
 /*btn*/
-.dropdown{
+/* .dropdown{
     width:100px;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
@@ -229,7 +258,7 @@ export default {
 }
 .dropdown .dropdown-item{
     color:rgb(182, 182, 182);
-}
+} */
 /*付款方式*/
 
 .btnAndCheckOut .payment{

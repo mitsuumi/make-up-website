@@ -9,14 +9,10 @@
               <li><router-link to="/cosmetics">美顏保養</router-link></li>
               <li><router-link to="/makeup">美妝彩妝</router-link></li>
             </ul>
-            <!-- <router-link to="/">首頁</router-link>
-            <router-link to="/products">全部產品</router-link>
-            <router-link to="/cosmetics">美顏保養</router-link>
-            <router-link to="/makeup">美妝彩妝</router-link> -->
           </div>
           <div class="right">
             <user-dropdown></user-dropdown>
-            <cart-dropdown></cart-dropdown>
+            <cart-dropdown :cart="cart"></cart-dropdown>
           </div>
       </nav>
     <router-view/>
@@ -39,13 +35,35 @@ export default {
       mobileNav: true,
     };
   },
+  props: {
+    cart: {
+      type: Object,
+      required: true,
+    },
+  },
   components: {
     NavDropdown,
     CartDropdown,
     UserDropdown,
   },
+  computed: {
+
+  },
   mounted() {
     window.addEventListener('scroll', this.updateScroll);
+    // const url = 'http://localhost:8080/data/products.json';
+    this.axios.get('/shopList')
+      .then((response) => {
+        this.goodsList = response.data.data;
+        this.goodsList.forEach((good) => {
+          // eslint-disable-next-line no-param-reassign
+          good.count = 0;
+        });
+        console.log('全部商品', this.goodsList);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
   methods: {
     updateScroll() {

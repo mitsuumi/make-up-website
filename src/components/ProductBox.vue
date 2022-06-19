@@ -1,22 +1,25 @@
 <template>
     <div class="card" style="width: 18rem;">
-    <router-link :to="{name: 'product',params: {id: id}}">
-      <img :src="img" class="card-img-top" alt="...">
-      <div class="card-body">
-        <div class="title">
-          <h5 class="card-title">{{title}}</h5>
-        </div>
-        <div class="content">
-          <p class="card-text original">原價 ${{price}}</p >
-          <p class="card-text sale">特價 ${{parseInt(price*0.8)}}</p>
-          <button href="#" class="btn btn-primary cartBtn" @click="addCart">加入購物車</button>
-          <div class="follow">
-            <BIconHeart />
-            <span>加入追蹤清單</span>
+      <router-link :to="{name: 'product',params: {id: id}}">
+        <img :src="img" class="card-img-top" alt="...">
+        <div class="card-body">
+          <div class="title">
+            <h5 class="card-title">{{title}}</h5>
+          </div>
+          <div class="content">
+            <p class="card-text original">原價 ${{price}}</p >
+            <p class="card-text sale">特價 ${{parseInt(price*0.8)}}</p>
           </div>
         </div>
-      </div>
-      </router-link>
+        </router-link >
+          <div class="card-buttons">
+          <button href="#" class="btn btn-primary cartBtn" @click="addCart">加入購物車</button>
+            <div class="follow">
+                      <BIconHeart />
+                      <span>加入追蹤清單</span>
+                    </div>
+          </div>
+
     </div>
 
 </template>
@@ -34,11 +37,18 @@ export default {
   },
   data() {
     return {
+      number: 1,
     };
   },
   methods: {
     addCart() {
-      this.$emit('chosen', this.id);
+      this.$emit('chosen', {
+        id: this.id,
+        img: this.img,
+        title: this.title,
+        count: this.count,
+        price: this.price,
+      });
     },
   },
 };
@@ -77,9 +87,12 @@ a:hover{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 
 .cartBtn{
+  width: 146px;
+  height: 40px;
   margin-bottom: 19px;
   background: rgba(255, 208, 208, 0.2);
   color: #000;
